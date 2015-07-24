@@ -88,6 +88,8 @@
     _springAnimationDuration = 0.25f;
     _springAnimationDampingRatio = 0.7f;
     _springAnimationVelocity = 0.2f;
+    _segmentHorizontalMargin = 0.f;
+    _segmentMinWidth = 0.f;
     
     self.layer.cornerRadius = 4.0f;
 
@@ -162,8 +164,10 @@
     CGFloat maxSegmentWidth = 0.0f;
     
     for (NYSegment *segment in self.segments) {
+        segment.titleMargin = _segmentHorizontalMargin;
+        segment.minWidth =_segmentMinWidth;
         CGFloat segmentWidth = [segment sizeThatFits:size].width;
-        if (segmentWidth > maxSegmentWidth) {
+         if (segmentWidth > maxSegmentWidth) {
             maxSegmentWidth = segmentWidth;
         }
     }
@@ -185,6 +189,7 @@
         NYSegment *segment = self.segments[i];
         segment.frame = CGRectMake(segmentWidth * i, 0.0f, segmentWidth, segmentHeight);
         segment.titleLabel.labelInsets = self.titleLabelInsets;
+
         if (self.stylesTitleForSelectedSegment) {
             if (self.selectedSegmentIndex == i) {
                 segment.titleLabel.font = self.selectedTitleFont;
@@ -534,6 +539,16 @@
 
 - (CGFloat)segmentIndicatorBorderWidth {
     return self.selectedSegmentIndicator.borderWidth;
+}
+
+- (void)setSegmentHorizontalMargin:(CGFloat)segmentHorizontalMargin {
+    _segmentHorizontalMargin = segmentHorizontalMargin;
+    [self setNeedsLayout];
+}
+
+- (void)setSegmentMinWidth:(CGFloat)segmentMinWidth {
+    _segmentMinWidth = segmentMinWidth;
+    [self setNeedsLayout];
 }
 
 - (void)setTitleFont:(UIFont *)titleFont {

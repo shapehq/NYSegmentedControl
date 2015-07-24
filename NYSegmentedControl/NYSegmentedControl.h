@@ -165,6 +165,16 @@ The color of the control's shadow
 @property (nonatomic) CGFloat segmentIndicatorBorderWidth UI_APPEARANCE_SELECTOR;
 
 /**
+The minimum width a segment
+*/
+@property (nonatomic) CGFloat segmentMinWidth UI_APPEARANCE_SELECTOR;
+
+/**
+The horizontal width of margins on a segment
+*/
+@property (nonatomic) CGFloat segmentHorizontalMargin UI_APPEARANCE_SELECTOR;
+
+/**
  The number of segments in the control (read-only)
  */
 @property (nonatomic, readonly) NSUInteger numberOfSegments;

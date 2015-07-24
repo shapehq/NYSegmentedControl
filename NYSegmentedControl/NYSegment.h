@@ -15,6 +15,8 @@
 @interface NYSegment : UIView
 
 @property (nonatomic) NYSegmentLabel *titleLabel;
+@property (nonatomic) CGFloat titleMargin;
+@property (nonatomic) CGFloat minWidth;
 
 - (instancetype)initWithTitle:(NSString *)title;
 

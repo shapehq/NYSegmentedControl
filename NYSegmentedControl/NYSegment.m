@@ -37,11 +37,11 @@ static CGFloat const kMinimumSegmentWidth = 68.0f;
     return self;
 }
 
-
-
 - (CGSize)sizeThatFits:(CGSize)size {
     CGSize sizeThatFits = [self.titleLabel sizeThatFits:size];
-    return CGSizeMake(MAX(sizeThatFits.width * 1.4f, kMinimumSegmentWidth), sizeThatFits.height);
+    CGFloat minWidth = self.minWidth > 0? self.minWidth : kMinimumSegmentWidth;
+    CGFloat widthWithMargin = sizeThatFits.width + (self.titleMargin > 0? self.titleMargin * 2 : sizeThatFits.width * 0.4f);
+    return CGSizeMake(MAX(widthWithMargin, minWidth), sizeThatFits.height);
 }
 
 @end
