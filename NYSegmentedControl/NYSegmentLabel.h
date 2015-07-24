@@ -14,5 +14,5 @@
 @property (nonatomic, strong) UIColor *alternativeTextColor;
 @property (nonatomic, assign) CGRect maskFrame;
 @property (nonatomic, assign) CGFloat maskCornerRadius;
-
+@property (nonatomic, assign) UIEdgeInsets labelInsets;
 @end

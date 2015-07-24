@@ -7,6 +7,7 @@
 //  https://github.com/nealyoung/NYSegmentedControl
 //
 
+#import <CoreGraphics/CoreGraphics.h>
 #import "NYSegmentLabel.h"
 
 @implementation NYSegmentLabel
@@ -27,7 +28,7 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     // Draw text normally
-    [super drawTextInRect:rect];
+    [self drawTextInRect:rect];
 
     if (self.alternativeTextColor) {
         CGImageRef mask = NULL;
@@ -57,6 +58,12 @@
         CGImageRelease(mask);
     }
 }
+
+- (void)drawTextInRect:(CGRect)rect {
+//    UIEdgeInsets insets = {2, 0, 0, 0};
+    [super drawTextInRect:UIEdgeInsetsInsetRect(rect, self.labelInsets)];
+}
+
 
 - (CGPathRef)pathForRoundedRect:(CGRect)rect radius:(CGFloat)radius {
     if (CGRectIsEmpty(rect)) {

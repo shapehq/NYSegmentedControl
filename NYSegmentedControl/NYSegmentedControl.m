@@ -61,6 +61,7 @@
         for (NSString *segmentTitle in items) {
             NYSegment *segment = [[NYSegment alloc] initWithTitle:segmentTitle];
             segment.titleLabel.maskCornerRadius = self.cornerRadius;
+            segment.titleLabel.labelInsets = UIEdgeInsetsMake(0, 0, 0, 0);
             [self.contentView addSubview:segment];
             [mutableSegments addObject:segment];
         }
@@ -183,7 +184,7 @@
     for (int i = 0; i < [self.segments count]; i++) {
         NYSegment *segment = self.segments[i];
         segment.frame = CGRectMake(segmentWidth * i, 0.0f, segmentWidth, segmentHeight);
-        
+        segment.titleLabel.labelInsets = self.titleLabelInsets;
         if (self.stylesTitleForSelectedSegment) {
             if (self.selectedSegmentIndex == i) {
                 segment.titleLabel.font = self.selectedTitleFont;
@@ -537,6 +538,11 @@
 
 - (void)setTitleFont:(UIFont *)titleFont {
     _titleFont = titleFont;
+    [self setNeedsLayout];
+}
+
+- (void)setTitleLabelInsets:(UIEdgeInsets)titleLabelInsets {
+    _titleLabelInsets = titleLabelInsets;
     [self setNeedsLayout];
 }
 

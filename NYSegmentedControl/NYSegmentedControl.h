@@ -41,6 +41,11 @@
 @property (nonatomic) UIFont *titleFont UI_APPEARANCE_SELECTOR;
 
 /**
+The inset used for the segment titles
+*/
+@property (nonatomic) UIEdgeInsets titleLabelInsets UI_APPEARANCE_SELECTOR;
+
+/**
  The color of the segment titles
  */
 @property (nonatomic) UIColor *titleTextColor UI_APPEARANCE_SELECTOR;
