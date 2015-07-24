@@ -71,6 +71,26 @@
 @property (nonatomic) CGFloat borderWidth UI_APPEARANCE_SELECTOR;
 
 /**
+The radius of the control's shadow
+*/
+@property (nonatomic) CGFloat shadowRadius UI_APPEARANCE_SELECTOR;
+
+/**
+The opacity of the control's shadow
+*/
+@property (nonatomic) CGFloat shadowOpacity UI_APPEARANCE_SELECTOR;
+
+/**
+The offset of the control's shadow
+*/
+@property (nonatomic) CGSize shadowOffset UI_APPEARANCE_SELECTOR;
+
+/**
+The color of the control's shadow
+*/
+@property (nonatomic) CGColorRef shadowColor UI_APPEARANCE_SELECTOR;
+
+/**
  If YES, the control's background will be drawn with a background gradient specified by the gradientTopColor and gradientBottomColor properties. The default value is YES.
  
  @see gradientTopColor

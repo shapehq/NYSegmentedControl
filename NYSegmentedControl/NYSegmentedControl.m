@@ -13,7 +13,7 @@
 #import "NYSegmentLabel.h"
 
 @interface NYSegmentedControl ()
-
+@property (nonatomic, strong) UIView *contentView;
 @property (nonatomic) NSArray *segments;
 @property NYSegmentIndicator *selectedSegmentIndicator;
 @property (nonatomic, getter=isAnimating) BOOL animating;
@@ -61,7 +61,7 @@
         for (NSString *segmentTitle in items) {
             NYSegment *segment = [[NYSegment alloc] initWithTitle:segmentTitle];
             segment.titleLabel.maskCornerRadius = self.cornerRadius;
-            [self addSubview:segment];
+            [self.contentView addSubview:segment];
             [mutableSegments addObject:segment];
         }
         
@@ -88,18 +88,22 @@
     _springAnimationDampingRatio = 0.7f;
     _springAnimationVelocity = 0.2f;
     
-    self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    self.layer.masksToBounds = YES;
     self.layer.cornerRadius = 4.0f;
-    self.layer.borderWidth = 1.0f;
-    
+
     self.backgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
     self.drawsGradientBackground = NO;
     self.opaque = NO;
+
+    [self addSubview:self.contentView];
+
+    self.contentView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.contentView.layer.masksToBounds = YES;
+    self.contentView.layer.cornerRadius = 4.0f;
+    self.contentView.layer.borderWidth = 1.0f;
     
     self.selectedSegmentIndicator = [[NYSegmentIndicator alloc] initWithFrame:CGRectZero];
     self.drawsSegmentIndicatorGradientBackground = YES;
-    [self addSubview:self.selectedSegmentIndicator];
+    [self.contentView addSubview:self.selectedSegmentIndicator];
     
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)];
     [panGestureRecognizer setMinimumNumberOfTouches:1];
@@ -128,7 +132,7 @@
         for (int i = 0; i < numberOfSegments; i++) {
             NSString *title = [self.dataSource segmentedControl:self titleAtIndex:i];
             NYSegment *segment = [[NYSegment alloc] initWithTitle:title];
-            [self addSubview:segment];
+            [self.contentView addSubview:segment];
             [segmentsArray addObject:segment];
         }
         
@@ -136,6 +140,13 @@
     } else {
         return nil;
     }
+}
+
+- (UIView *)contentView {
+    if(!_contentView){
+        _contentView = [UIView new];
+    }
+    return _contentView;
 }
 
 - (NSArray *)segments {
@@ -165,6 +176,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    self.contentView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     
     CGFloat segmentWidth = CGRectGetWidth(self.frame) / [self.segments count];
     CGFloat segmentHeight = CGRectGetHeight(self.frame);
@@ -208,7 +220,7 @@
     
     NYSegment *newSegment = [[NYSegment alloc] initWithTitle:title];
     newSegment.titleLabel.maskCornerRadius = self.cornerRadius;
-    [self addSubview:newSegment];
+    [self.contentView addSubview:newSegment];
     
     NSMutableArray *mutableSegments = [NSMutableArray arrayWithArray:self.segments];
     [mutableSegments insertObject:newSegment atIndex:index];
@@ -263,7 +275,6 @@
                            options:UIViewAnimationOptionTransitionCrossDissolve
                         animations:^{
                             previousSegment.titleLabel.font = self.titleFont;
-                            previousSegment.titleLabel.textColor = self.titleTextColor;
                             previousSegment.titleLabel.maskFrame = CGRectZero;
                         }
                         completion:nil];
@@ -273,7 +284,6 @@
                            options:UIViewAnimationOptionTransitionCrossDissolve
                         animations:^{
                             selectedSegment.titleLabel.font = self.selectedTitleFont;
-                            selectedSegment.titleLabel.textColor = self.selectedTitleTextColor;
                             
                             if (self.drawsSegmentIndicatorGradientBackground) {
                                 //selectedSegment.titleLabel.shadowColor = [UIColor darkGrayColor];
@@ -412,10 +422,43 @@
 
 - (void)setBorderWidth:(CGFloat)borderWidth {
     self.layer.borderWidth = borderWidth;
+    self.contentView.layer.borderWidth = borderWidth;
 }
 
 - (CGFloat)borderWidth {
     return self.layer.borderWidth;
+}
+
+-(void) setShadowRadius: (CGFloat) shadowRadius {
+    self.layer.shadowRadius = shadowRadius;
+}
+
+-(CGFloat) shadowRadius {
+    return self.layer.shadowRadius;
+}
+
+-(void) setShadowOpacity: (CGFloat) shadowOpacity {
+    self.layer.shadowOpacity = shadowOpacity;
+}
+
+-(CGFloat) shadowOpacity {
+    return self.layer.shadowOpacity;
+}
+
+-(void) setShadowOffset: (CGSize) shadowOffset {
+    self.layer.shadowOffset = shadowOffset;
+}
+
+-(CGSize) shadowOffset {
+    return self.layer.shadowOffset;
+}
+
+-(void) setShadowColor: (CGColorRef) shadowColor {
+    self.layer.shadowColor = shadowColor;
+}
+
+-(CGColorRef) shadowColor {
+    return self.layer.shadowColor;
 }
 
 - (void)setCornerRadius:(CGFloat)cornerRadius {
@@ -424,6 +467,7 @@
     }
     
     self.layer.cornerRadius = cornerRadius;
+    self.contentView.layer.cornerRadius = cornerRadius;
     self.selectedSegmentIndicator.cornerRadius = cornerRadius * ((self.frame.size.height - self.segmentIndicatorInset * 2) / self.frame.size.height);
     [self setNeedsDisplay];
 }
