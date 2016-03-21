@@ -15,6 +15,7 @@
 @interface NYSegment : UIView
 
 @property (nonatomic) NYSegmentLabel *titleLabel;
+@property (nonatomic, assign) CGFloat widthMultiplier;
 
 - (instancetype)initWithTitle:(NSString *)title;
 

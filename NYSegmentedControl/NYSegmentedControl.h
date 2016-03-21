@@ -140,6 +140,12 @@
 @property (nonatomic) CGFloat segmentIndicatorBorderWidth UI_APPEARANCE_SELECTOR;
 
 /**
+ The multiplier of a segment width
+ */
+
+@property (nonatomic) CGFloat segmentWidthMultiplier;
+
+/**
  The number of segments in the control (read-only)
  */
 @property (nonatomic, readonly) NSUInteger numberOfSegments;

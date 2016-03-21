@@ -150,6 +150,10 @@
     CGFloat maxSegmentWidth = 0.0f;
     
     for (NYSegment *segment in self.segments) {
+        if (self.segmentWidthMultiplier > 0) {
+            segment.widthMultiplier = self.segmentWidthMultiplier;
+        }
+        
         CGFloat segmentWidth = [segment sizeThatFits:size].width;
         if (segmentWidth > maxSegmentWidth) {
             maxSegmentWidth = segmentWidth;
