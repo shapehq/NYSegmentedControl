@@ -27,6 +27,10 @@
 		4D1DE1301FE94CEF0010A668 /* NYSegmentIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F28C9E7C2C16F3C90C066 /* NYSegmentIndicator.m */; };
 		4D1DE1311FE94CEF0010A668 /* NYSegmentTextRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F2E2AD1CACF14B488DE0F /* NYSegmentTextRenderView.m */; };
 		4D1DE1321FE94CEF0010A668 /* NYSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F26883AD0F08EA44F6774 /* NYSegment.m */; };
+		4D1DE1351FE958C80010A668 /* NYSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 659F243FA0BCD42CEFAAE8E2 /* NYSegmentedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D1DE1361FE958C80010A668 /* NYSegmentIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 659F29086DDA90B516DACA22 /* NYSegmentIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D1DE1371FE958C80010A668 /* NYSegmentTextRenderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 659F255C114426B98D821354 /* NYSegmentTextRenderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D1DE1381FE958C80010A668 /* NYSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 659F2E554A1A4D16DA1FA816 /* NYSegment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		659F21897B4838586BF193C7 /* NYSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F26883AD0F08EA44F6774 /* NYSegment.m */; };
 		659F244CE6F6022E8146667F /* NYSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F2880C9CF8CACC71FACF6 /* NYSegmentedControl.m */; };
 		659F2A3F8905B6E980263458 /* NYSegmentTextRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F2E2AD1CACF14B488DE0F /* NYSegmentTextRenderView.m */; };
@@ -237,6 +241,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D1DE1261FE94CCE0010A668 /* NYSegmentedControl.h in Headers */,
+				4D1DE1351FE958C80010A668 /* NYSegmentedControl.h in Headers */,
+				4D1DE1361FE958C80010A668 /* NYSegmentIndicator.h in Headers */,
+				4D1DE1371FE958C80010A668 /* NYSegmentTextRenderView.h in Headers */,
+				4D1DE1381FE958C80010A668 /* NYSegment.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
