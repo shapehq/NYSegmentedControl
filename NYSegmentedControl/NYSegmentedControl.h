@@ -1,4 +1,4 @@
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -42,6 +42,11 @@ NS_ASSUME_NONNULL_BEGIN
  The color of the selected segment's title.
  */
 @property (nonatomic) UIColor *selectedTitleTextColor UI_APPEARANCE_SELECTOR;
+
+/**
+ The label line height multiple.
+ */
+@property (nonatomic) CGFloat lineHeightMultiple UI_APPEARANCE_SELECTOR;
 
 /**
  The radius of the control's corners.
@@ -174,7 +179,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An initialized NYSegmentedControl object, or nil if it could not be created.
  */
-- (instancetype)initWithItems:(NSArray *)items;
+- (instancetype)initWithItems:(NSArray<NSString *> *)items;
 
 /**
  Inserts a segment at the specified index.

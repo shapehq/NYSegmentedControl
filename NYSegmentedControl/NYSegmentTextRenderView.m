@@ -15,7 +15,8 @@
     if (self) {
         _font = [UIFont systemFontOfSize:14.0f];
         _textColor = [UIColor darkGrayColor];
-
+        _lineHeightMultiple = 0.0;
+        
         _selectedTextColor = _textColor;
         _selectedFont = _font;
 
@@ -71,17 +72,19 @@
 - (void)setupSelectedAttributes {
     NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     paragraphStyle.alignment = NSTextAlignmentCenter;
+    paragraphStyle.lineHeightMultiple = self.lineHeightMultiple;
 
     NSDictionary *selectedAttributes = @{ NSFontAttributeName: self.selectedFont,
                                           NSForegroundColorAttributeName: self.selectedTextColor,
                                           NSParagraphStyleAttributeName: paragraphStyle };
-
+    
     self.selectedTextAttributes = selectedAttributes;
 }
 
 - (void)setupUnselectedAttributes {
     NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     paragraphStyle.alignment = NSTextAlignmentCenter;
+    paragraphStyle.lineHeightMultiple = self.lineHeightMultiple;
 
     NSDictionary *unselectedAttributes = @{ NSFontAttributeName: self.font,
                                             NSForegroundColorAttributeName: self.textColor,
@@ -114,6 +117,13 @@
     _selectedTextColor = selectedTextColor;
     
     [self setupSelectedAttributes];
+}
+
+- (void)setLineHeightMultiple:(CGFloat)lineHeightMultiple {
+    _lineHeightMultiple = lineHeightMultiple;
+    
+    [self setupSelectedAttributes];
+    [self setupUnselectedAttributes];
 }
 
 - (void)setSelectedFont:(UIFont *)selectedFont {

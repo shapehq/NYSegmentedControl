@@ -43,7 +43,11 @@
     return self;
 }
 
-- (instancetype)initWithItems:(NSArray *)items {
+- (instancetype)initWithItems:(NSArray<NSString *> *)items {
+    return [self initWithItems:items attributes:nil];
+}
+
+- (instancetype)initWithItems:(NSArray<NSString *> *)items attributes:(NSDictionary *)attributes {
     self = [self initWithFrame:CGRectZero];
     
     if (self) {
@@ -69,6 +73,7 @@
     _titleTextColor = [UIColor blackColor];
     _selectedTitleFont = [UIFont boldSystemFontOfSize:13.0f];
     _selectedTitleTextColor = [UIColor blackColor];
+    _lineHeightMultiple = 0.0;
     _stylesTitleForSelectedSegment = YES;
     _segmentIndicatorInset = 0.0f;
     _segmentIndicatorAnimationDuration = 0.15f;
@@ -160,6 +165,7 @@
     for (int i = 0; i < self.segments.count; i++) {
         NYSegment *segment = self.segments[i];
         segment.frame = CGRectMake(segmentWidth * i, 0.0f, segmentWidth, segmentHeight);
+        segment.titleLabel.lineHeightMultiple = self.lineHeightMultiple;
         
         if (self.stylesTitleForSelectedSegment) {
             if (self.selectedSegmentIndex == i) {

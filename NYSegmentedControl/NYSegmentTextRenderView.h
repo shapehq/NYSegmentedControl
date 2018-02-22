@@ -1,4 +1,4 @@
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIColor *selectedTextColor;
 @property (nonatomic, strong) UIFont *selectedFont;
+
+@property (nonatomic, assign) CGFloat lineHeightMultiple;
 
 @property (nonatomic, assign) CGRect selectedTextDrawingRect;
 @property (nonatomic, assign) CGFloat maskCornerRadius;
