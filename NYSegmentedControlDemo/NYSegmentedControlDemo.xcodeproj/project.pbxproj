@@ -20,7 +20,6 @@
 		0E3CBE3C18DECF82001EC237 /* NYSegmentedControlDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CBE3B18DECF82001EC237 /* NYSegmentedControlDemoTests.m */; };
 		0E3CBE4918DECFAC001EC237 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CBE4618DECFAC001EC237 /* AppDelegate.m */; };
 		0E3CBE4A18DECFAC001EC237 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CBE4818DECFAC001EC237 /* DemoViewController.m */; };
-		4D1DE1261FE94CCE0010A668 /* NYSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D1DE1241FE94CCE0010A668 /* NYSegmentedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D1DE1291FE94CCE0010A668 /* NYSegmentedControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1DE1221FE94CCE0010A668 /* NYSegmentedControl.framework */; };
 		4D1DE12A1FE94CCE0010A668 /* NYSegmentedControl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1DE1221FE94CCE0010A668 /* NYSegmentedControl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D1DE12F1FE94CE90010A668 /* NYSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F2880C9CF8CACC71FACF6 /* NYSegmentedControl.m */; };
@@ -31,6 +30,7 @@
 		4D1DE1361FE958C80010A668 /* NYSegmentIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 659F29086DDA90B516DACA22 /* NYSegmentIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D1DE1371FE958C80010A668 /* NYSegmentTextRenderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 659F255C114426B98D821354 /* NYSegmentTextRenderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D1DE1381FE958C80010A668 /* NYSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 659F2E554A1A4D16DA1FA816 /* NYSegment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DBF5700203F143800D4DC2C /* NYSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D1DE1241FE94CCE0010A668 /* NYSegmentedControl.h */; };
 		659F21897B4838586BF193C7 /* NYSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F26883AD0F08EA44F6774 /* NYSegment.m */; };
 		659F244CE6F6022E8146667F /* NYSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F2880C9CF8CACC71FACF6 /* NYSegmentedControl.m */; };
 		659F2A3F8905B6E980263458 /* NYSegmentTextRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F2E2AD1CACF14B488DE0F /* NYSegmentTextRenderView.m */; };
@@ -240,11 +240,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D1DE1261FE94CCE0010A668 /* NYSegmentedControl.h in Headers */,
 				4D1DE1351FE958C80010A668 /* NYSegmentedControl.h in Headers */,
 				4D1DE1361FE958C80010A668 /* NYSegmentIndicator.h in Headers */,
 				4D1DE1371FE958C80010A668 /* NYSegmentTextRenderView.h in Headers */,
 				4D1DE1381FE958C80010A668 /* NYSegment.h in Headers */,
+				4DBF5700203F143800D4DC2C /* NYSegmentedControl.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
